@@ -6,15 +6,10 @@ odoo.define('module.DianInvoice', function(require) {
     {
         var flagLoaded = false;
         var mainIntervalTime = 2500;
-        var itv = setInterval(function() 
+        setInterval(function() 
         {
             if($("form.checkout_autoformat").length>0)
-            {   
-                $(".div_zip").remove()
-                var country_id = $('#country_id option:contains(Colombia)').val();
-                $("#country_id").val(country_id);
-                
-                $('input[name="city"]').val("not_needed")
+            {
                 init_xcity_selection()             
 
                 $(document).on("blur", "input[name='xidentification']", function() 
@@ -52,30 +47,14 @@ odoo.define('module.DianInvoice', function(require) {
                     $("input[name='zip']").val(xcity_zip);
                 }); 
 
-                clearInterval(itv)
-
             }
         
         function init_xcity_selection() 
         {
-            
-            populate_states(country_id);
             if($("select[name='xcity']").find('option').length == 0)
             {                
                 populate_xcity_field(true);
-                
-                
             }
-            var companyBrandName = $("input[name='companyBrandName']").val()
-            if(String(companyBrandName).length>0)
-            {
-                $("select[name='doctype']").val(31); 
-            }
-            else
-            {
-                $("select[name='doctype']").val(13); 
-            }
-            $("input[name='company_name']").val(companyBrandName);
         }
 
         function update_nit_cod_verification()
@@ -95,13 +74,10 @@ odoo.define('module.DianInvoice', function(require) {
             if(String(company_name)=="")
             {
                 $("select[name='doctype']").val(13);
-                $("input[name='verificationDigit']").val('');
-                $("input[name='is_company']").prop( "checked", false );
             }
             if(String(company_name).length > 0 )
             {
                 $("select[name='doctype']").val(31);
-                $("input[name='is_company']").prop( "checked", true );                
             }
         }
         function update_customer_full_name()
@@ -122,7 +98,7 @@ odoo.define('module.DianInvoice', function(require) {
             
                 $.ajax({
                     type: "POST",
-                    url: '/l10n_co_res_partner/get_state_city/',
+                    url: '/l10n_co_res_partner/get_state_city',
                     data: JSON.stringify(data),
                     dataType: 'json',
                     contentType: "application/json",
@@ -145,8 +121,7 @@ odoo.define('module.DianInvoice', function(require) {
                                     
                                     $("select[name='xcity']").html('');
                                     $("select[name='xcity']").append(xcities_options);
-                                    var code = $("select[name='xcity'] option:selected").attr("code")
-                                    $("input[name='zip']").val(code) 
+
                                     if(set_partner_city)
                                     {
                                         
@@ -166,9 +141,7 @@ odoo.define('module.DianInvoice', function(require) {
                                             {
                                                 if (response.result.xcity_id_!=null) 
                                                 {
-                                                    $("select[name='xcity']").val(response.result.xcity_id_.xcity)
-                                                    var code = $("select[name='xcity'] option:selected").attr("code")
-                                                    $("input[name='zip']").val(code)  
+                                                    $("select[name='xcity']").val(response.result.xcity_id_.xcity) 
                                                 }
                                             }
                                         });
@@ -179,47 +152,6 @@ odoo.define('module.DianInvoice', function(require) {
                             {console.log(error) }
                         }
             
-                    }
-                });
-
-        }
-
-        function populate_states(country_id)
-        {
-            var data = { "params": { "mode": "shipping" } }
-            var country_id = $('#country_id option:contains(Colombia)').val();
-                $.ajax({
-                    type: "POST",
-                    url: '/shop/country_infos/' + String(country_id),
-                    data: JSON.stringify(data),
-                    dataType: 'json',
-                    contentType: "application/json",
-                    async: false,
-                    success: function(response) 
-                    {
-                        var xidentification = $('input[name="xidentification"]').val();
-                        if(String(xidentification).length==0)
-                        {
-
-                        
-                        if(response.result.states)
-                        {
-                            var states = response.result.states;
-                            var options = ""
-                            states.forEach(function(state,index)
-                            {
-                                // [679, "Vichada", "VID"]
-                               if(parseInt(state[0])>0)
-                                   options = options + String("<option value='"+state[0]+"' data-code='"+state[2]+"'>") + String(state[1]) +String("<option>")
-                            });
-                            $("select[name='state_id']").html("");
-                            $("select[name='state_id']").append(options);
-                            $("select[name='state_id'] option").not( "[value]" ).remove();
-                            var xcity_code = $("select[name='xcity'] option:selected").attr("code");
-                            $("input[name='zip']").val(xcity_code);
-
-                        }
-                    }
                     }
                 });
 

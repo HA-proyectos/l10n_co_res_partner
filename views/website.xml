@@ -44,7 +44,6 @@
                 </xpath>  
                 <xpath expr="//form[@class='checkout_autoformat']//div//div" position="inside">
                      <div>
-                            <input type="checkbox" t-att-value="'is_company' in checkout and checkout['is_company']" name="is_company" class="form-control website-is_company hidden-element"></input>  
                             <input type="text"  name="name"  class="form-control website-name hidden-element" readonly="1" t-att-value="'name' in checkout and checkout['name']" ></input> 
                             <input type="text"  name="pos_name"  class="form-control website-name hidden-element" readonly="1" t-att-value="'name' in checkout and checkout['name']" ></input> 
                             <input type="text"  name="companyBrandName"  class="form-control website-name hidden-element" readonly="1" t-att-value="'company_name' in checkout and checkout['company_name']" ></input> 
@@ -52,11 +51,11 @@
                                 <tr>
                                     <td>
                                         <label>Primer Nombre</label>
-                                        <input t-att-value="'x_name1' in checkout and checkout['x_name1']" type="text" name="x_name1" placeholder="Jon" class="form-control website-x_name1"/>
+                                        <input t-att-value="'x_name1' in checkout and checkout['x_name1']" type="text" name="x_name1" placeholder="Richi" class="form-control website-x_name1"/>
                                     </td>
                                     <td>
                                         <label>Segundo Nombre</label>
-                                        <input t-att-value="'x_name2' in checkout and checkout['x_name2']" type="text" name="x_name2" placeholder="Smith" class="form-control website-x_name2"/>
+                                        <input t-att-value="'x_name2' in checkout and checkout['x_name2']" type="text" name="x_name2" placeholder="Hamilton" class="form-control website-x_name2"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -72,20 +71,16 @@
                             </table>                        
                     </div>
                 </xpath>
-                 <xpath expr="//form[@class='checkout_autoformat']/div[@class='form-row']/div[12]" position="after">
+                <xpath expr="//form[@class='checkout_autoformat']/div[@class='form-row']/div[12]" position="after">
                     <t> 
                         <div class="div_district form-group  col-lg-6">
                             <label class="col-form-label" for="xcity">Municipio</label>                 
                                 <select name="xcity" class="form-control ">
 
                                 </select>     
-                        </div>  
-                         <div class="div_zip_custom form-group  col-lg-6" style="max-width:200px">
-                                <label class="col-form-label label-optional" for="zip">Zip Code</label>
-                                <input type="text" name="zip" t-attf-class="form-control #{error.get('zip') and 'is-invalid' or ''}" t-att-value="'zip' in checkout and checkout['zip']" style="max-width:200px"/>
-                        </div> 
+                        </div>           
                     </t>
-                </xpath>            
+                </xpath>              
         </template>                        
     </data>
 </odoo>

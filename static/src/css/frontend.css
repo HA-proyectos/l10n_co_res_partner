@@ -28,9 +28,3 @@ form.checkout_autoformat input[name="name"], form.checkout_autoformat label[for=
 {
     margin-top: 5px;
 }
-.div_zip, .div_city
-{
-    display: none!important;
-}
-.div_state
-{display: block!important;}

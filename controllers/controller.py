@@ -22,27 +22,17 @@ from odoo.http import request
 
 class controller(http.Controller):
 
-    @http.route('/l10n_co_res_partner/get_partner_state_city/',  methods=['POST'], type='json', auth="public", website=True)
+    @http.route('/l10n_co_res_partner/get_partner_state_city',  methods=['POST'], type='json', auth="public", website=True)
     def get_partner_state_city(self, **kw):
         _response = {}
         partner_id = kw.get('partner_id')
-        query = "select xcity, state_id from res_partner where id = " + str(partner_id)
+        query = "select xcity from res_partner where id = " + str(partner_id)
         request.cr.execute(query)
         partner_city = request.cr.dictfetchone()
         _response['xcity_id_'] = partner_city
         return _response
-    
-    @http.route('/l10n_co_res_partner/get_partner_state/',  methods=['POST'], type='json', auth="public", website=True)
-    def get_partner_state(self, **kw):
-        _response = {}
-        partner_id = kw.get('partner_id')
-        query = "select state_id from res_partner where id = " + str(partner_id)
-        request.cr.execute(query)
-        state_id = request.cr.dictfetchone()
-        _response['state_id'] = state_id
-        return _response
 
-    @http.route('/l10n_co_res_partner/get_state_city/',  methods=['POST'], type='json', auth="public", website=True)
+    @http.route('/l10n_co_res_partner/get_state_city',  methods=['POST'], type='json', auth="public", website=True)
     def get_state_city(self, **kw):
         _response = {'state_cities':None}
         state_id_ = kw.get('state_id')

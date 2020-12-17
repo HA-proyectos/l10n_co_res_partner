@@ -47,15 +47,14 @@ class IndustrialClassification(models.Model):
 
     hierarchy = fields.Selection(
         [
-            (1, 'Has Parent?'),
-            (2, 'Has Division?'),
-            (3, 'Has Section?')
+            ("1", 'Has Parent?'),
+            ("2", 'Has Division?'),
+            ("3", 'Has Section?')
         ],
         'Hierarchy'
     )
 
 
-    @api.multi
     @api.depends('code', 'description')
     def _compute_concat_name(self):
         """
@@ -71,7 +70,6 @@ class IndustrialClassification(models.Model):
                     ' - ' + str(rec.description.encode('utf-8').strip())
 
 
-    @api.multi
     @api.depends('has_parent')
     def _compute_set_type(self):
         """
