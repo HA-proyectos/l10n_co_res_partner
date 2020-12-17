@@ -18,7 +18,7 @@ msgstr ""
 #. module: l10n_co_res_partner
 #: selection:res.partner,doctype:0
 msgid "11 - Birth Certificate"
-msgstr "11 - Registro civil de nacimiento"
+msgstr ""
 
 #. module: l10n_co_res_partner
 #: selection:res.partner,doctype:0

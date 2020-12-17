@@ -60,21 +60,21 @@ class PartnerInfoExtended(models.Model):
     # Document information
     doctype = fields.Selection(
         [
-            ("1", "No identification"),
-            ("11", "11 - Birth Certificate"),
-            ("12", "12 - Identity Card"),
-            ("13", "13 - Citizenship Card"),
-            ("21", "21 - Alien Registration Card"),
-            ("22", "22 - Foreigner ID"),
-            ("31", "31 - TAX Number (NIT)"),
-            ("41", "41 - Passport"),
-            ("42", "42 - Foreign Identification Document"),
-            ("43", "43 - No Foreign Identification")
+            (1, "No identification"),
+            (11, "11 - Birth Certificate"),
+            (12, "12 - Identity Card"),
+            (13, "13 - Citizenship Card"),
+            (21, "21 - Alien Registration Card"),
+            (22, "22 - Foreigner ID"),
+            (31, "31 - TAX Number (NIT)"),
+            (41, "41 - Passport"),
+            (42, "42 - Foreign Identification Document"),
+            (43, "43 - No Foreign Identification")
+
         ], "Type of Identification"
     )
     xidentification = fields.Char("Document Number", store=True,
                                   help="Enter the Identification Number")
-
     verificationDigit = fields.Integer('VD', size=2)
     formatedNit = fields.Char(
         string='NIT Formatted',
@@ -85,27 +85,27 @@ class PartnerInfoExtended(models.Model):
     # Tributate regime
     x_pn_retri = fields.Selection(
                                     [
-                                        ("6", "Simplified"),
-                                        ("23", "Natural Person"),
-                                        ("7", "Common"),
-                                        ("11", "Great Taxpayer Autorretenedor"),
-                                        ("22", "International"),
-                                        ("25", "Common Autorretenedor"),
-                                        ("24", "Great Contributor")
+                                        (6, "Simplified"),
+                                        (23, "Natural Person"),
+                                        (7, "Common"),
+                                        (11, "Great Taxpayer Autorretenedor"),
+                                        (22, "International"),
+                                        (25, "Common Autorretenedor"),
+                                        (24, "Great Contributor")
                                     ], 
                                     string="Tax Regime",
-                                    default="6"                                    
+                                    default=6                                    
                                   )
 
     # CIIU - Clasificación Internacional Industrial Uniforme
     ciiu = fields.Many2one('ciiu', "ISIC Activity")
     personType = fields.Selection(
         [
-            ("1", "Natural"),
-            ("2", "Juridical")
+            (1, "Natural"),
+            (2, "Juridical")
         ],
         "Type of Person",
-        default="1"
+        default=1
     )
 
     # Replacing the field company_type
@@ -166,7 +166,7 @@ class PartnerInfoExtended(models.Model):
         """
         # Executing only for Document Type 31 (NIT)
         for partner in self:
-            if partner.doctype is "31":
+            if partner.doctype is 31:
                 # First check if entered value is valid
                 self._check_ident()
                 self._check_ident_num()
@@ -238,7 +238,7 @@ class PartnerInfoExtended(models.Model):
                 self.x_name2 = False
                 self.x_lastname1 = False
                 self.x_lastname2 = False
-                self.doctype = "1"
+                self.doctype = 1
             else:
                 for item in nameList:
                     if item is not b'':
@@ -280,13 +280,13 @@ class PartnerInfoExtended(models.Model):
         contact cleaner and ready for analysis
         @return: void
         """
-        if self.personType is "2":
+        if self.personType is 2:
             self.x_name1 = ''
             self.x_name2 = ''
             self.x_lastname1 = ''
             self.x_lastname2 = ''
-            self.x_pn_retri = "7"
-        elif self.personType is "1":
+            self.x_pn_retri = 7
+        elif self.personType is 1:
             self.companyName = False
             self.companyBrandName = False
             self.x_pn_retri = False
@@ -311,13 +311,13 @@ class PartnerInfoExtended(models.Model):
         @return: void
         """
         if self.company_type == 'company':
-            self.personType = "2"
+            self.personType = 2
             self.is_company = True
-            self.doctype = "31"
+            self.doctype = 31
         else:
-            self.personType = "1"
+            self.personType = 1
             self.is_company = False
-            self.doctype = "1"
+            self.doctype = 1
 
     @api.onchange('is_company')
     def on_change_is_company(self):
@@ -327,7 +327,7 @@ class PartnerInfoExtended(models.Model):
         @return: void
         """
         if self.is_company is True:
-            self.personType = "2"
+            self.personType = 2
             self.company_type = 'company'
             self.xbirthday = False
         else:
@@ -354,7 +354,7 @@ class PartnerInfoExtended(models.Model):
         @return: String
         """
         for item in self:
-            if item.doctype != "31":
+            if item.doctype != 31:
                 return str(nit)
 
             nitString = '0'*(15-len(nit)) + nit
@@ -395,8 +395,8 @@ class PartnerInfoExtended(models.Model):
         else:
             return {}
 
-        obj = self.env[mymodel]
-        ids = obj.search([(filter_column, '=', check_value)])
+        obj = self.pool.get(mymodel)
+        ids = obj.search(cr, uid, [(filter_column, '=', check_value)])
         return {
             'domain': {domain: [('id', 'in', ids)]},
             'value': {domain: ''}
@@ -410,7 +410,7 @@ class PartnerInfoExtended(models.Model):
         @return: void
         """
         for item in self:
-            if item.doctype is not "1":
+            if item.doctype is not 1:
                 msg = _('Error! Number of digits in Identification number must be'
                         'between 2 and 12')
                 if len(str(item.xidentification)) < 2:
@@ -428,10 +428,10 @@ class PartnerInfoExtended(models.Model):
         @return: void
         """
         for item in self:
-            if item.doctype is not "1":
+            if item.doctype is not 1:
                 if item.xidentification is not False and \
-                        item.doctype != "21" and \
-                        item.doctype != "41":
+                        item.doctype != 21 and \
+                        item.doctype != 41:
                     if re.match("^[0-9]+$", item.xidentification) is None:
                         msg = _('Error! Identification number can only '
                                 'have numbers')
@@ -443,11 +443,11 @@ class PartnerInfoExtended(models.Model):
         This function throws and error if there is no document type selected.
         @return: void
         """
-        if self.doctype is not "1":
+        if self.doctype is not 1:
             if self.doctype is False:
                 msg = _('Error! Please choose an identification type')
                 raise exceptions.ValidationError(msg)
-            elif self.xidentification is False and self.doctype is not "43":
+            elif self.xidentification is False and self.doctype is not 43:
                 msg = _('Error! Identification number is mandatory')
                 raise exceptions.ValidationError(msg)
 
@@ -458,11 +458,11 @@ class PartnerInfoExtended(models.Model):
         we check it again to get sure
         """
         if self.is_company is True:
-            if self.personType is "1":
+            if self.personType is 1:
                 if self.x_name1 is False or self.x_name1 == '':
                     msg = _('Error! Please enter the persons name')
                     raise exceptions.ValidationError(msg)
-            elif self.personType is "2":
+            elif self.personType is 2:
                 if self.companyName is False:
                     msg = _('Error! Please enter the companys name')
                     raise exceptions.ValidationError(msg)
@@ -485,15 +485,34 @@ class PartnerInfoExtended(models.Model):
             msg = _('Error! Please select a person type')
             raise exceptions.ValidationError(msg)
 
+    @api.multi
+    def _display_address(self, without_company=False):
 
-    @api.onchange('state_id')
-    def on_change_domain_xcity(self):
-        """
-        If Document Type changes we delete the document number as for different
-        document types there are different rules that apply e.g. foreign
-        documents (e.g. 21) allows letters in the value. Here we reduce the
-        risk of having corrupt information about the contact.
-        @return: void
-        """
-        if self.state_id:
-            return {'domain': {'xcity': [('state_id.code', '=', self.state_id.code)]}}
+        '''
+        The purpose of this function is to build and return an address formatted accordingly to the
+        standards of the country where it belongs.
+
+        :param address: browse record of the res.partner to format
+        :returns: the address formatted in a display that fit its country habits (or the default ones
+            if not country is specified)
+        :rtype: string
+        '''
+        # get the information that will be injected into the display format
+        # get the address format
+        address_format = self._get_address_format()
+        args = {
+            'state_code': self.state_id.code or '',
+            'state_name': self.state_id.name or '',
+            'country_code': self.country_id.code or '',
+            'country_name': self._get_country_name(),
+            'company_name': self.commercial_company_name or '',
+        }
+        for field in self._formatting_address_fields():
+            args[field] = getattr(self, field) or ''
+        if without_company:
+            args['company_name'] = ''
+        elif self.commercial_company_name:
+            address_format = '%(company_name)s\n' + address_format
+
+        args['city'] = args['city'].capitalize() + ','
+        return address_format % args
