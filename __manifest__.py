@@ -15,8 +15,9 @@
         'base'
     ],
     'data': [
-        'views/ciiu.xml',
         'views/l10n_co_res_partner.xml',
+        'views/ciiu.xml',
+        'views/website.xml',
         'data/ciiu.csv',
         'data/l10n_states_co_data.xml',
         'data/l10n_cities_co_data.xml',
