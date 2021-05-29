@@ -20,7 +20,6 @@ class MrpProductionInherit(models.Model):
 	warehouse_quantity = fields.Char(compute='_get_warehouse_quantity', string='Cantidad en Almacenes')
 
 	def _get_warehouse_quantity(self):
-		_logger.info('estamos entrando')
 		for record in self:
 			warehouse_quantity_text = ''
 			product_id = record.product_id.id

@@ -11,12 +11,15 @@
     'category': 'Create Request',
     'description': '',
     'author': 'Brayhan Andres Jaramillo Castaño',
-    'depends': [ 'mrp', 'base', 'mrp_sale_production'
+    'depends': [
+        'mrp',
+        'base',
+        'purchase_request',
+        'alfa_amb_mrp_purchase_request'
     ],
 
     'data': [
         'views/mrp_production_inherit_view.xml',
-
     ],
     'installable': True,
 }

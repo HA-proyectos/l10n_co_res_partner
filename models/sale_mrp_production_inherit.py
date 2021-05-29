@@ -13,29 +13,20 @@ _logger = logging.getLogger(__name__)
 from odoo.exceptions import UserError, AccessError, ValidationError
 
 
-class SaleMrpProductionInherit(models.Model):
+class SaleMrpProduction(models.Model):
+    _name = 'sale.mrp.production'
+#    _inherit = 'mrp.production'
 
-	_inherit = 'sale.mrp.production'
+    @api.onchange('product_id')
+    def onchange_product(self):
+        if self.product_id:
+            mrp_bom_model= self.env['mrp.bom']
+            mrp_bom_id= mrp_bom_model.search([('product_tmpl_id', '=', self.product_id.product_tmpl_id.id), ('list_main', '=', True)])
+            if mrp_bom_id:
 
+                self.boom_tmp_id= mrp_bom_id.id
+                self.bom_id= mrp_bom_id.id
+            else:
+                raise UserError(_("Verifique que el campo Lista de Materiales Principal, este selecionado en la lista de materiales del producto seleccionado"))
 
-	@api.onchange('product_id')
-	def onchange_product(self):
-		_logger.info('entramos')
-		_logger.info(self.product_id.id)
-		_logger.info(self.product_id.product_tmpl_id.id)
-		if self.product_id:
-			mrp_bom_model= self.env['mrp.bom']
-			mrp_bom_id= mrp_bom_model.search([('product_tmpl_id', '=', self.product_id.product_tmpl_id.id), ('list_main', '=', True)])
-
-			_logger.info(mrp_bom_id)
-			if mrp_bom_id:
-
-				self.boom_tmp_id= mrp_bom_id.id
-				self.bom_id= mrp_bom_id.id
-			else:
-				raise UserError(_("Verifique que el campo Lista de Materiales Principal, este selecionado en la lista de materiales del producto seleccionado"))
-
-
-
-
-SaleMrpProductionInherit()
+SaleMrpProduction()
