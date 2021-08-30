@@ -3,6 +3,94 @@
 <odoo>
     <!-- States -->
     <data noupdate="1">
+        <!--  Obligaciones Rut  
+        <record model="res.obligaciones.rut" id="res_obligaciones_O13">
+            <field name="code">O-13</field>
+            <field name="name">O-13 - Gran contribuyente</field>
+        </record>
+        <record model="res.obligaciones.rut" id="res_obligaciones_O15">
+            <field name="code">O-15</field>
+            <field name="name">O-15 - Autorretenedor</field>
+        </record>
+        <record model="res.obligaciones.rut" id="res_obligaciones_O23">
+            <field name="code">O-23</field>
+            <field name="name">O-23 - Agente de retención IVA</field>
+        </record>
+        <record model="res.obligaciones.rut" id="res_obligaciones_O47">
+            <field name="code">O-47</field>
+            <field name="name">O-47 - Régimen simple de tributación </field>
+        </record>
+        <record model="res.obligaciones.rut" id="res_obligaciones_R99">
+            <field name="code">R-99-PN</field>
+            <field name="name">R-99-PN - No responsable PN</field>
+        </record>-->
+        <!--  Tributos Rut
+        <record model="res.tributos.rut" id="res_tributos_O1">
+            <field name="code">01</field>
+            <field name="name">01 - Impuesto de Valor Agregado</field>
+        </record>
+        <record model="res.tributos.rut" id="res_tributos_O2">
+            <field name="code">02</field>
+            <field name="name">02 - Impuesto al Consumo</field>
+        </record>
+        <record model="res.tributos.rut" id="res_tributos_O3">
+            <field name="code">03</field>
+            <field name="name">03 - Impuesto de Industria, Comercio y Aviso</field>
+        </record>
+        <record model="res.tributos.rut" id="res_tributos_O4">
+            <field name="code">04</field>
+            <field name="name">04 - Impuesto Nacional al Consumo</field>
+        </record>
+        <record model="res.tributos.rut" id="res_tributos_O5">
+            <field name="code">05</field>
+            <field name="name">05 - Retención sobre el IVA</field>
+        </record>
+        <record model="res.tributos.rut" id="res_tributos_O6">
+            <field name="code">06</field>
+            <field name="name">06 - Retención sobre Renta</field>
+        </record>
+        <record model="res.tributos.rut" id="res_tributos_O7">
+            <field name="code">07</field>
+            <field name="name">07 - Retención sobre el ICA</field>
+        </record>
+        <record model="res.tributos.rut" id="res_tributos_O7">
+            <field name="code">20</field>
+            <field name="name">20 - Cuota de Fomento Hortifrutícula</field>
+        </record>
+        <record model="res.tributos.rut" id="res_tributos_21">
+            <field name="code">21</field>
+            <field name="name">21 - Impuesto de Timbre</field>
+        </record>
+        <record model="res.tributos.rut" id="res_tributos_22">
+            <field name="code">22</field>
+            <field name="name">22 - Impuesto al Consumo de Bolsa Plástica</field>
+        </record>
+        <record model="res.tributos.rut" id="res_tributos_23">
+            <field name="code">23</field>
+            <field name="name">23 - Impuesto Nacional al Carbono</field>
+        </record>
+        <record model="res.tributos.rut" id="res_tributos_24">
+            <field name="code">24</field>
+            <field name="name">24 - Impuesto Nacional a los Combustibles</field>
+        </record>
+        <record model="res.tributos.rut" id="res_tributos_25">
+            <field name="code">25</field>
+            <field name="name">25 - Sobretasa a los combustibles</field>
+        </record>
+         <record model="res.tributos.rut" id="res_tributos_26">
+            <field name="code">26</field>
+            <field name="name">26 - Contribución minoristas (Combustibles)</field>
+        </record>
+        <record model="res.tributos.rut" id="res_tributos_ZZ">
+            <field name="code">ZZ</field>
+            <field name="name">ZZ - Otros tributos, tasas, contribuciones, y similares</field>
+        </record>
+        <record model="res.tributos.rut" id="res_tributos_ZY">
+            <field name="code">ZY</field>
+            <field name="name">ZY - No responsable de tributo</field>
+        </record>-->
+
+        <!--  Ciudades -->
 
         <record model="res.country.state.city" id="res_country_state_co_05001">
             <field name="code">05001</field>
@@ -86,7 +174,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_05042">
             <field name="code">05042</field>
-            <field name="name">SANTAFÉ DE ANTIOQUIA</field>
+            <field name="name">SANTA FÉ DE ANTIOQUIA</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','ANT')]" model="res.country.state" name="state_id"/>
@@ -94,7 +182,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_05044">
             <field name="code">05044</field>
-            <field name="name">ANZA</field>
+            <field name="name">ANZÁ</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','ANT')]" model="res.country.state" name="state_id"/>
@@ -366,7 +454,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_05264">
             <field name="code">05264</field>
-            <field name="name">ENTRERRIOS</field>
+            <field name="name">ENTRERRÍOS</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','ANT')]" model="res.country.state" name="state_id"/>
@@ -446,7 +534,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_05321">
             <field name="code">05321</field>
-            <field name="name">GUATAPE</field>
+            <field name="name">GUATAPÉ</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','ANT')]" model="res.country.state" name="state_id"/>
@@ -470,7 +558,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_05360">
             <field name="code">05360</field>
-            <field name="name">ITAGUI</field>
+            <field name="name">ITAGÜÍ</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','ANT')]" model="res.country.state" name="state_id"/>
@@ -774,7 +862,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_05665">
             <field name="code">05665</field>
-            <field name="name">SAN PEDRO DE URABA</field>
+            <field name="name">SAN PEDRO DE URABÁ</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','ANT')]" model="res.country.state" name="state_id"/>
@@ -846,7 +934,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_05756">
             <field name="code">05756</field>
-            <field name="name">SONSON</field>
+            <field name="name">SONSÓN</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','ANT')]" model="res.country.state" name="state_id"/>
@@ -1198,7 +1286,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_13001">
             <field name="code">13001</field>
-            <field name="name">CARTAGENA</field>
+            <field name="name">CARTAGENA DE INDIAS</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','BOL')]" model="res.country.state" name="state_id"/>
@@ -1470,7 +1558,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_13670">
             <field name="code">13670</field>
-            <field name="name">SAN PABLO</field>
+            <field name="name">SAN PABLO SUR</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','BOL')]" model="res.country.state" name="state_id"/>
@@ -1486,7 +1574,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_13683">
             <field name="code">13683</field>
-            <field name="name">SANTA ROSA</field>
+            <field name="name">SANTA ROSA DE LIMA</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','BOL')]" model="res.country.state" name="state_id"/>
@@ -1862,7 +1950,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_15296">
             <field name="code">15296</field>
-            <field name="name">GAMEZA</field>
+            <field name="name">GÁMEZA</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','BOY')]" model="res.country.state" name="state_id"/>
@@ -1902,7 +1990,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_15332">
             <field name="code">15332</field>
-            <field name="name">GÜICÁN</field>
+            <field name="name">GÜICÁN DE LA SIERRA</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','BOY')]" model="res.country.state" name="state_id"/>
@@ -2518,7 +2606,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_15842">
             <field name="code">15842</field>
-            <field name="name">UMBITA</field>
+            <field name="name">ÚMBITA</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','BOY')]" model="res.country.state" name="state_id"/>
@@ -2814,7 +2902,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_18256">
             <field name="code">18256</field>
-            <field name="name">EL PAUJIL</field>
+            <field name="name">EL PAUJÍL</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CAQ')]" model="res.country.state" name="state_id"/>
@@ -2998,7 +3086,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_19318">
             <field name="code">19318</field>
-            <field name="name">GUAPI</field>
+            <field name="name">GUAPÍ</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CAU')]" model="res.country.state" name="state_id"/>
@@ -3038,7 +3126,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_19418">
             <field name="code">19418</field>
-            <field name="name">LÓPEZ</field>
+            <field name="name">LÓPEZ DE MICAY</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CAU')]" model="res.country.state" name="state_id"/>
@@ -3078,7 +3166,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_19517">
             <field name="code">19517</field>
-            <field name="name">PAEZ</field>
+            <field name="name">PÁEZ - BELALCAZAR</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CAU')]" model="res.country.state" name="state_id"/>
@@ -3086,7 +3174,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_19532">
             <field name="code">19532</field>
-            <field name="name">PATÍA</field>
+            <field name="name">PATÍA – EL BORDO</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CAU')]" model="res.country.state" name="state_id"/>
@@ -3102,7 +3190,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_19548">
             <field name="code">19548</field>
-            <field name="name">PIENDAMÓ</field>
+            <field name="name">PIENDAMÓ – TUNÍA</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CAU')]" model="res.country.state" name="state_id"/>
@@ -3118,7 +3206,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_19585">
             <field name="code">19585</field>
-            <field name="name">PURACÉ</field>
+            <field name="name">PURACÉ - COCONUCO</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CAU')]" model="res.country.state" name="state_id"/>
@@ -3206,7 +3294,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_19821">
             <field name="code">19821</field>
-            <field name="name">TORIBIO</field>
+            <field name="name">TORIBÍO</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CAU')]" model="res.country.state" name="state_id"/>
@@ -3350,7 +3438,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_20443">
             <field name="code">20443</field>
-            <field name="name">MANAURE</field>
+            <field name="name">MANAURE BALCÓN DEL CESAR</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CES')]" model="res.country.state" name="state_id"/>
@@ -3582,7 +3670,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_23586">
             <field name="code">23586</field>
-            <field name="name">PURÍSIMA</field>
+            <field name="name">PURÍSIMA DE LA CONCEPCIÓN</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','COR')]" model="res.country.state" name="state_id"/>
@@ -3766,7 +3854,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_25151">
             <field name="code">25151</field>
-            <field name="name">CAQUEZA</field>
+            <field name="name">CÁQUEZA</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CUN')]" model="res.country.state" name="state_id"/>
@@ -3878,7 +3966,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_25279">
             <field name="code">25279</field>
-            <field name="name">FOMEQUE</field>
+            <field name="name">FÓMEQUE</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CUN')]" model="res.country.state" name="state_id"/>
@@ -3918,7 +4006,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_25293">
             <field name="code">25293</field>
-            <field name="name">GACHALA</field>
+            <field name="name">GACHALÁ</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CUN')]" model="res.country.state" name="state_id"/>
@@ -4006,7 +4094,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_25328">
             <field name="code">25328</field>
-            <field name="name">GUAYABAL DE SIQUIMA</field>
+            <field name="name">GUAYABAL DE SÍQUIMA</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CUN')]" model="res.country.state" name="state_id"/>
@@ -4094,7 +4182,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_25426">
             <field name="code">25426</field>
-            <field name="name">MACHETA</field>
+            <field name="name">MACHETÁ</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CUN')]" model="res.country.state" name="state_id"/>
@@ -4310,7 +4398,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_25662">
             <field name="code">25662</field>
-            <field name="name">SAN JUAN DE RÍO SECO</field>
+            <field name="name">SAN JUAN DE RIOSECO</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CUN')]" model="res.country.state" name="state_id"/>
@@ -4502,7 +4590,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_25843">
             <field name="code">25843</field>
-            <field name="name">VILLA DE SAN DIEGO DE UBATE</field>
+            <field name="name">VILLA DE SAN DIEGO DE UBATÉ</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CUN')]" model="res.country.state" name="state_id"/>
@@ -4614,7 +4702,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_27025">
             <field name="code">27025</field>
-            <field name="name">ALTO BAUDÓ</field>
+            <field name="name">ALTO BAUDÓ (PIE DE PATÓ)</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CHO')]" model="res.country.state" name="state_id"/>
@@ -4622,7 +4710,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_27050">
             <field name="code">27050</field>
-            <field name="name">ATRATO</field>
+            <field name="name">ATRATO (YUTO)</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CHO')]" model="res.country.state" name="state_id"/>
@@ -4638,7 +4726,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_27075">
             <field name="code">27075</field>
-            <field name="name">BAHÍA SOLANO</field>
+            <field name="name">BAHÍA SOLANO (MUTIS)</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CHO')]" model="res.country.state" name="state_id"/>
@@ -4646,7 +4734,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_27077">
             <field name="code">27077</field>
-            <field name="name">BAJO BAUDÓ</field>
+            <field name="name">BAJO BAUDÓ (PIZARRO)</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CHO')]" model="res.country.state" name="state_id"/>
@@ -4654,7 +4742,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_27099">
             <field name="code">27099</field>
-            <field name="name">BOJAYA</field>
+            <field name="name">BOJAYÁ (BELLA VISTA)</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CHO')]" model="res.country.state" name="state_id"/>
@@ -4750,7 +4838,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_27450">
             <field name="code">27450</field>
-            <field name="name">MEDIO SAN JUAN</field>
+            <field name="name">MEDIO SAN JUAN (ANDAGOYA)</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CHO')]" model="res.country.state" name="state_id"/>
@@ -4774,7 +4862,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_27580">
             <field name="code">27580</field>
-            <field name="name">RÍO IRÓ</field>
+            <field name="name">RÍO IRÓ (SANTA RITA)</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CHO')]" model="res.country.state" name="state_id"/>
@@ -4950,7 +5038,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_41357">
             <field name="code">41357</field>
-            <field name="name">IQUIRA</field>
+            <field name="name">ÍQUIRA</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','HUI')]" model="res.country.state" name="state_id"/>
@@ -4966,7 +5054,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_41378">
             <field name="code">41378</field>
-            <field name="name">LA ARGENTINA</field>
+            <field name="name">LA ARGENTINA (LA PLATA VIEJA)</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','HUI')]" model="res.country.state" name="state_id"/>
@@ -5086,7 +5174,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_41797">
             <field name="code">41797</field>
-            <field name="name">TESALIA</field>
+            <field name="name">TESALIA (CARNICERÍAS)</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','HUI')]" model="res.country.state" name="state_id"/>
@@ -5286,7 +5374,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_47161">
             <field name="code">47161</field>
-            <field name="name">CERRO SAN ANTONIO</field>
+            <field name="name">CERRO DE SAN ANTONIO</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','MAG')]" model="res.country.state" name="state_id"/>
@@ -5294,7 +5382,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_47170">
             <field name="code">47170</field>
-            <field name="name">CHIVOLO</field>
+            <field name="name">CHIBOLO</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','MAG')]" model="res.country.state" name="state_id"/>
@@ -5326,7 +5414,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_47258">
             <field name="code">47258</field>
-            <field name="name">EL PIÑON</field>
+            <field name="name">EL PIÑÓN</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','MAG')]" model="res.country.state" name="state_id"/>
@@ -5414,7 +5502,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_47660">
             <field name="code">47660</field>
-            <field name="name">SABANAS DE SAN ANGEL</field>
+            <field name="name">SABANAS DE SAN ÁNGEL</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','MAG')]" model="res.country.state" name="state_id"/>
@@ -5534,7 +5622,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_50223">
             <field name="code">50223</field>
-            <field name="name">SAN LUIS DE CUBARRAL</field>
+            <field name="name">CUBARRAL</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','MET')]" model="res.country.state" name="state_id"/>
@@ -5574,7 +5662,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_50287">
             <field name="code">50287</field>
-            <field name="name">FUENTE DE ORO</field>
+            <field name="name">FUENTEDEORO</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','MET')]" model="res.country.state" name="state_id"/>
@@ -5710,7 +5798,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_50689">
             <field name="code">50689</field>
-            <field name="name">SAN MARTÍN</field>
+            <field name="name">SAN MARTÍN DE LOS LLANOS</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','MET')]" model="res.country.state" name="state_id"/>
@@ -5734,7 +5822,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_52019">
             <field name="code">52019</field>
-            <field name="name">ALBÁN</field>
+            <field name="name">ALBÁN (SAN JOSÉ)</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','NAR')]" model="res.country.state" name="state_id"/>
@@ -5790,7 +5878,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_52203">
             <field name="code">52203</field>
-            <field name="name">COLÓN</field>
+            <field name="name">COLÓN (GÉNOVA)</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','NAR')]" model="res.country.state" name="state_id"/>
@@ -6006,7 +6094,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_52418">
             <field name="code">52418</field>
-            <field name="name">LOS ANDES</field>
+            <field name="name">LOS ANDES (SOTOMAYOR)</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','NAR')]" model="res.country.state" name="state_id"/>
@@ -6014,7 +6102,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_52427">
             <field name="code">52427</field>
-            <field name="name">MAGÜI</field>
+            <field name="name">MAGÜÍ (PAYÁN)</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','NAR')]" model="res.country.state" name="state_id"/>
@@ -6022,7 +6110,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_52435">
             <field name="code">52435</field>
-            <field name="name">MALLAMA</field>
+            <field name="name">MALLAMA (PIEDRANCHA)</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','NAR')]" model="res.country.state" name="state_id"/>
@@ -6118,7 +6206,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_52621">
             <field name="code">52621</field>
-            <field name="name">ROBERTO PAYÁN</field>
+            <field name="name">ROBERTO PAYÁN (SAN JOSÉ)</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','NAR')]" model="res.country.state" name="state_id"/>
@@ -6214,7 +6302,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_52835">
             <field name="code">52835</field>
-            <field name="name">SAN ANDRES DE TUMACO</field>
+            <field name="name">SAN ANDRÉS DE TUMACO</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','NAR')]" model="res.country.state" name="state_id"/>
@@ -6246,7 +6334,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_54003">
             <field name="code">54003</field>
-            <field name="name">ABREGO</field>
+            <field name="name">ÁBREGO</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','NSA')]" model="res.country.state" name="state_id"/>
@@ -6278,7 +6366,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_54125">
             <field name="code">54125</field>
-            <field name="name">CÁCOTA</field>
+            <field name="name">CÁCOTA DE VELASCO</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','NSA')]" model="res.country.state" name="state_id"/>
@@ -6286,7 +6374,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_54128">
             <field name="code">54128</field>
-            <field name="name">CACHIRÁ</field>
+            <field name="name">CÁCHIRA</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','NSA')]" model="res.country.state" name="state_id"/>
@@ -6398,7 +6486,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_54398">
             <field name="code">54398</field>
-            <field name="name">LA PLAYA</field>
+            <field name="name">LA PLAYA DE BELÉN</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','NSA')]" model="res.country.state" name="state_id"/>
@@ -6470,7 +6558,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_54660">
             <field name="code">54660</field>
-            <field name="name">SALAZAR</field>
+            <field name="name">SALAZAR DE LAS PALMAS</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','NSA')]" model="res.country.state" name="state_id"/>
@@ -6510,7 +6598,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_54743">
             <field name="code">54743</field>
-            <field name="name">SILOS</field>
+            <field name="name">SANTO DOMINGO DE SILOS</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','NSA')]" model="res.country.state" name="state_id"/>
@@ -6574,7 +6662,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_63130">
             <field name="code">63130</field>
-            <field name="name">CALARCA</field>
+            <field name="name">CALARCÁ</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','QUI')]" model="res.country.state" name="state_id"/>
@@ -7038,7 +7126,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_68298">
             <field name="code">68298</field>
-            <field name="name">GAMBITA</field>
+            <field name="name">GÁMBITA</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','SAN')]" model="res.country.state" name="state_id"/>
@@ -7486,7 +7574,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_70204">
             <field name="code">70204</field>
-            <field name="name">COLOSO</field>
+            <field name="name">COLOSÓ</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','SUC')]" model="res.country.state" name="state_id"/>
@@ -7710,7 +7798,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_73055">
             <field name="code">73055</field>
-            <field name="name">ARMERO</field>
+            <field name="name">ARMERO (GUAYABAL)</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','TOL')]" model="res.country.state" name="state_id"/>
@@ -8126,7 +8214,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_76126">
             <field name="code">76126</field>
-            <field name="name">CALIMA</field>
+            <field name="name">CALIMA (DARIEN)</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','VAC')]" model="res.country.state" name="state_id"/>
@@ -8454,7 +8542,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_85015">
             <field name="code">85015</field>
-            <field name="name">CHAMEZA</field>
+            <field name="name">CHÁMEZA</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','CAS')]" model="res.country.state" name="state_id"/>
@@ -8774,7 +8862,7 @@
 
         <record model="res.country.state.city" id="res_country_state_co_97161">
             <field name="code">97161</field>
-            <field name="name">CARURU</field>
+            <field name="name">CARURÚ</field>
 
             <field search="[('code','=','CO')]" model="res.country" name="country_id"/>
             <field search="[('code','=','VAU')]" model="res.country.state" name="state_id"/>

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ###############################################################################
 #                                                                             #
 # Copyright (C) 2016  Dominic Krimmer                                         #
@@ -73,8 +74,7 @@ class PartnerInfoExtended(models.Model):
 
         ], "Type of Identification"
     )
-    xidentification = fields.Char("Document Number", store=True,
-                                  help="Enter the Identification Number")
+    xidentification = fields.Char("Document Number", store=True,  help="Enter the Identification Number")
     verificationDigit = fields.Integer('VD', size=2)
     formatedNit = fields.Char(
         string='NIT Formatted',
@@ -92,9 +92,9 @@ class PartnerInfoExtended(models.Model):
                                         (22, "International"),
                                         (25, "Common Autorretenedor"),
                                         (24, "Great Contributor")
-                                    ], 
+                                    ],
                                     string="Tax Regime",
-                                    default=6                                    
+                                    default=6
                                   )
 
     # CIIU - Clasificación Internacional Industrial Uniforme
@@ -145,15 +145,17 @@ class PartnerInfoExtended(models.Model):
     # Birthday of the contact (only useful for non-company contacts)
     xbirthday = fields.Date("Birthday")
 
-    def get_doctype(self, cr, uid, context={'lang': 'es_CO'}):
+    @api.model
+    def get_doctype(self):
         result = []
-        for item in self.pool.get('res.partner').fields_get(cr, uid, allfields=['doctype'], context=context)['doctype']['selection']:
+        for item in self.env['res.partner'].fields_get(self)['doctype']['selection']:
             result.append({'id': item[0], 'name': item[1]})
         return result
 
-    def get_persontype(self, cr, uid, context={'lang': 'es_CO'}):
+    @api.model
+    def get_persontype(self):
         result = []
-        for item in self.pool.get('res.partner').fields_get(cr, uid, allfields=['personType'], context=context)['personType']['selection']:
+        for item in self.env['res.partner'].fields_get(self)['personType']['selection']:
             result.append({'id': item[0], 'name': item[1]})
         return result
 
@@ -243,16 +245,16 @@ class PartnerInfoExtended(models.Model):
                 for item in nameList:
                     if item is not b'':
                         formatedList.append(item.decode('UTF-8'))
-                    self.name = ' '.join(formatedList).title()
+                    self.name = ' '.join(formatedList).upper()
         else:
             # Some Companies are know for their Brand, which could conflict from the users point of view while
             # searching the company (e.j. o2 = brand, Telefonica = Company)
             if self.companyBrandName is not False:
                 delimiter = ', '
                 company_list = (self.companyBrandName, self.companyName)
-                self.name = delimiter.join(company_list).title()
+                self.name = delimiter.join(company_list).upper()
             else:
-                self.name = self.companyName.title()
+                self.name = self.companyName.upper()
 
     @api.onchange('name')
     def on_change_name(self):
@@ -371,8 +373,9 @@ class PartnerInfoExtended(models.Model):
             else:
                 return str(11-result)
 
-    def onchange_location(self, cr, uid, ids, country_id=False,
-                          state_id=False):
+
+    @api.onchange('country_id', 'state_id')
+    def onchange_location(self):
         """
         This functions is a great helper when you enter the customer's
         location. It solves the problem of various cities with the same name in
@@ -381,22 +384,22 @@ class PartnerInfoExtended(models.Model):
         @param state_id: State Id (ISO)
         @return: object
         """
-        if country_id:
+        if self.country_id:
             mymodel = 'res.country.state'
             filter_column = 'country_id'
-            check_value = country_id
+            check_value = self.country_id
             domain = 'state_id'
 
-        elif state_id:
+        elif self.state_id:
             mymodel = 'res.country.state.city'
             filter_column = 'state_id'
-            check_value = state_id
+            check_value = self.state_id.id
             domain = 'xcity'
         else:
             return {}
 
-        obj = self.pool.get(mymodel)
-        ids = obj.search(cr, uid, [(filter_column, '=', check_value)])
+        obj = self.env[mymodel]
+        ids = obj.search([(filter_column, '=', check_value)])
         return {
             'domain': {domain: [('id', 'in', ids)]},
             'value': {domain: ''}
