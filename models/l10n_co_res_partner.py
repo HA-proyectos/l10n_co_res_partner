@@ -45,7 +45,6 @@ class CountryStateCity(models.Model):
 	country_id = fields.Many2one('res.country', 'Country', required=True)
 	_order = 'code'
 
-
 class PartnerInfoExtended(models.Model):
 	_name = 'res.partner'
 	_inherit = 'res.partner'
@@ -81,8 +80,9 @@ class PartnerInfoExtended(models.Model):
 
 		], "Type of Identification", default=1
 	)
-	xidentification = fields.Char("Document Number", store=True,
-								  help="Enter the Identification Number")
+
+
+	xidentification = fields.Char("Document Number", store=True,  help="Enter the Identification Number")
 	verificationDigit = fields.Integer('VD', size=2)
 	formatedNit = fields.Char(
 		string='NIT Formatted',
@@ -91,8 +91,8 @@ class PartnerInfoExtended(models.Model):
 	)
 
 	# CIIU - Clasificación Internacional Industrial Uniforme
-	ciiu_id = fields.Many2one('res.ciiu', string='Actividad CIIU', domain=[('type', '!=', 'view')], help=u'Código industrial internacional uniforme (CIIU)')
-	
+	ciiu_id = fields.Many2one('res.ciiu', string='Actividad CIIU', domain=[('type', '!=', 'view')], help='Código industrial internacional uniforme (CIIU)')
+
 	personType = fields.Selection(
 		[
 			(1, "Natural"),
@@ -242,16 +242,16 @@ class PartnerInfoExtended(models.Model):
 				for item in nameList:
 					if item is not '':
 						formatedList.append(item)
-				self.name = ' ' .join(formatedList).title()
+				self.name = ' ' .join(formatedList).upper()
 		else:
 			# Some Companies are know for their Brand, which could conflict from the users point of view while
 			# searching the company (e.j. o2 = brand, Telefonica = Company)
 			if self.companyBrandName is not False:
 				delimiter = ', '
 				company_list = (self.companyBrandName, self.companyName)
-				self.name = delimiter.join(company_list).title()
+				self.name = delimiter.join(company_list).upper()
 			else:
-				self.name = self.companyName.title()
+				self.name = self.companyName.upper()
 
 	@api.onchange('name')
 	def onChangeName(self):
@@ -499,7 +499,7 @@ class PartnerInfoExtended(models.Model):
 		@return: void
 		"""
 		if self.x_name1 is not False:
-			self.x_name1 = self.x_name1.title()
+			self.x_name1 = self.x_name1.upper()
 
 	@api.onchange('x_name2')
 	def onChangeName2Upper(self):
@@ -509,7 +509,7 @@ class PartnerInfoExtended(models.Model):
 		@return: void
 		"""
 		if self.x_name2 is not False:
-			self.x_name2 = self.x_name2.title()
+			self.x_name2 = self.x_name2.upper()
 
 	@api.onchange('x_lastname1')
 	def onChangeLastNameUpper(self):
@@ -519,7 +519,7 @@ class PartnerInfoExtended(models.Model):
 		@return: void
 		"""
 		if self.x_lastname1 is not False:
-			self.x_lastname1 = self.x_lastname1.title()
+			self.x_lastname1 = self.x_lastname1.upper()
 
 
 	@api.onchange('x_lastname2')
@@ -530,7 +530,7 @@ class PartnerInfoExtended(models.Model):
 		@return: void
 		"""
 		if self.x_lastname2 is not False:
-			self.x_lastname2 = self.x_lastname2.title()
+			self.x_lastname2 = self.x_lastname2.upper()
 
 	@api.onchange('companyName')
 	def onChangeCompanyNUpper(self):
@@ -540,7 +540,7 @@ class PartnerInfoExtended(models.Model):
 		@return: void
 		"""
 		if self.companyName is not False:
-			self.companyName = self.companyName.title()
+			self.companyName = self.companyName.upper()
 
 
 	@api.multi

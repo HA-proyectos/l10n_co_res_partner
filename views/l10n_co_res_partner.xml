@@ -136,7 +136,10 @@
 													 attrs="{'invisible':['|',('personType', '=', 2), ('type', '=', 'delivery')]}"  />
 										<field name="ciiu_id" options='{"no_open": True, "no_create": True}' placeholder="Codigo CIIU" />
 										<field name="xbirthday" attrs="{'invisible':[('is_company', '=', True)]}" />
-
+										<!--<field name="obli_id" string="Obligaciones Rut" widget="many2many_tags"  attrs="{'required':[('customer', '=', True)]}"/>
+										<field name="trib_id" string="Tributos Rut" widget="many2many_tags" attrs="{'required':[('customer', '=', True)]}"/>
+										<field name="tipo_regimen" string="Tipo de regimen" />
+										<field name="barrios" string="Barrio" />-->
 								</field>
 								<field name="website" position="before">
 
