@@ -2,7 +2,7 @@
 {
     'name': 'Colombia - Terceros',
     'category': 'Localization',
-    'version': '9.0.0.1.1',
+    'version': '12.0',
     'author': 'Dominic Krimmer, Plastinorte S.A.S',
     'license': 'AGPL-3',
     'maintainer': 'dominic.krimmer@gmail.com',
@@ -12,7 +12,9 @@
     'images': ['images/main_screenshot.png'],
     'depends': [
         'account',
-        'base'
+        'base',
+        'website_form',
+        'website_sale'
     ],
     'data': [
         'views/l10n_co_res_partner.xml',
