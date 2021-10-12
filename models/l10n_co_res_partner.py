@@ -387,7 +387,7 @@ class PartnerInfoExtended(models.Model):
         if self.country_id:
             mymodel = 'res.country.state'
             filter_column = 'country_id'
-            check_value = self.country_id
+            check_value = self.country_id.id
             domain = 'state_id'
 
         elif self.state_id:
