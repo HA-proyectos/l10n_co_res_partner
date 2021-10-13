@@ -374,7 +374,7 @@ class PartnerInfoExtended(models.Model):
                 return str(11-result)
 
 
-    @api.onchange('country_id', 'state_id')
+    @api.onchange('country_id')
     def onchange_location(self):
         """
         This functions is a great helper when you enter the customer's
@@ -399,7 +399,7 @@ class PartnerInfoExtended(models.Model):
             return {}
 
         obj = self.env[mymodel]
-        ids = obj.search([(filter_column, '=', check_value)])
+        ids = obj.search([(filter_column, '=', check_value)]).ids
         return {
             'domain': {domain: [('id', 'in', ids)]},
             'value': {domain: ''}
