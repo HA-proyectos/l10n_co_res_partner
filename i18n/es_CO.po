@@ -218,7 +218,7 @@ msgstr "¡Error! El número de identificación sólo permite números"
 #: code:addons/l10n_co_res_partner/models/l10n_co_res_partner.py:434
 #, python-format
 msgid "Error! Identification number is mandatory"
-msgstr "¡Error! Número de identificación es obligatorio!"
+msgstr "¡Error! Numero de Documento es obligatorio!"
 
 #. module: l10n_co_res_partner
 #: code:addons/l10n_co_res_partner/models/l10n_co_res_partner.py:398
