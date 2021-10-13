@@ -72,9 +72,10 @@ class PartnerInfoExtended(models.Model):
             (42, "42 - Foreign Identification Document"),
             (43, "43 - No Foreign Identification")
 
-        ], "Type of Identification"
+        ], "Type of Identification",
+        default=1
     )
-    xidentification = fields.Char("Document Number", store=True,  help="Enter the Identification Number")
+    xidentification = fields.Char("Document Number",  help="Enter the Identification Number")
     verificationDigit = fields.Integer('VD', size=2)
     formatedNit = fields.Char(
         string='NIT Formatted',

@@ -67,8 +67,8 @@ class IndustrialClassification(models.Model):
             if rec.code is False or rec.description is False:
                 rec.name = ''
             else:
-                rec.name = str(rec.code.encode('utf-8').strip()) + \
-                    ' - ' + str(rec.description.encode('utf-8').strip())
+                rec.name = str(rec.code.strip()) + \
+                    ' - ' + str(rec.description.strip())
 
 
     @api.multi
